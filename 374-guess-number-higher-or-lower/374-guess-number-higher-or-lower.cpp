@@ -10,14 +10,14 @@
 class Solution {
 public:
     int guessNumber(int n) {
-        int l=1,r=n,md,ans,x;
+        int l=1,r=n,md,x;
         while(r>=l)
         {
             md=l+(r-l)/2;
             x=guess(md);
             if(x==-1)r=md-1;
             else if(x==1)l=md+1;
-            else break;
+            else return md;
         }
         return md;
     }
