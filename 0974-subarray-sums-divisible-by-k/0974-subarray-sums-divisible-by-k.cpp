@@ -6,15 +6,11 @@ public:
         for(auto it:nums)
         {
             sum+=it;
-            if(sum%k==0)appear[0]++;
-            else if(sum%k<0)appear[(sum%k)+k]++;
-            else appear[sum%k]++;
+            sum=((sum%k)+k)%k;
+            if(sum%k==0)cnt++;
+            if(appear.find(sum%k)!=appear.end())cnt+=appear[sum%k];
+            appear[sum%k]++;
         }
-        for(int i=0;i<k;i++)
-        {
-            if(appear.find(i)!=appear.end())
-                cnt+=((appear[i]-1)*appear[i]/2);
-        }
-        return cnt+appear[0];
+        return cnt;
     }
 };
