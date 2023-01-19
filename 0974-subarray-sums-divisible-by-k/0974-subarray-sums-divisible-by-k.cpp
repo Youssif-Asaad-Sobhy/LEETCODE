@@ -6,7 +6,9 @@ public:
         for(auto it:nums)
         {
             sum+=it;
-            appear[((sum % k) + k) % k]++;
+            if(sum%k==0)appear[0]++;
+            else if(sum%k<0)appear[(sum%k)+k]++;
+            else appear[sum%k]++;
         }
         for(int i=0;i<k;i++)
         {
