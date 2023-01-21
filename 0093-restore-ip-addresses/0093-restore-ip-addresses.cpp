@@ -14,7 +14,7 @@ public:
                 {
                     s3=s.substr(i+j,k);                    
                     s4=s.substr(i+j+k);
-                    if(valid(s1,s2,s3,s4))
+                    if(valid(s1)&&valid(s2)&&valid(s3)&&valid(s4))
                     {
                         ans.push_back(s1+"."+s2+"."+s3+"."+s4);
                     }
@@ -23,13 +23,11 @@ public:
         }
         return ans;
     }
-    bool valid(string &s1,string &s2,string &s3,string &s4)
+    bool valid(string &s)
     {
-        if(s1==""||s2==""||s3==""||s4=="")return 0;
-        if(s1.size()>3||s2.size()>3||s3.size()>3||s4.size()>3)return 0;
-        int i=stoi(s1),j=stoi(s2),k=stoi(s3),l=stoi(s4);
-        if(i>255||j>255||k>255||l>255)return 0;
-        if((s1.size()>1&&s1[0]=='0')||(s2.size()>1&&s2[0]=='0')||(s3.size()>1&&s3[0]=='0')||(s4.size()>1&&s4[0]=='0'))return 0;
+        if(s==""||(s.size()>1&&s[0]=='0')||s.size()>3)return 0;
+        int i=stoi(s);
+        if(i>255)return 0;
         return 1;
     }
 };
