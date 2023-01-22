@@ -39,8 +39,10 @@ public:
         
         if(ss.size())
         {
+            
             temp.push_back(ss);
-            solve(i,"");
+            if(valid(ss))
+                solve(i,"");
             temp.pop_back();
         }
         return;
