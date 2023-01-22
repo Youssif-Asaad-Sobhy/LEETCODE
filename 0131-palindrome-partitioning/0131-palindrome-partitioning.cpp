@@ -35,8 +35,6 @@ public:
             temp.pop_back();
             return;
         }
-        solve(i+1,ss+s[i]);
-        
         if(ss.size())
         {
             
@@ -45,6 +43,6 @@ public:
                 solve(i,"");
             temp.pop_back();
         }
-        return;
+        solve(i+1,ss+s[i]);
     }
 };
