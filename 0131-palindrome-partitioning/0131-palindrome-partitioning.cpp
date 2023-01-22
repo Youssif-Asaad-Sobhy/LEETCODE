@@ -36,12 +36,12 @@ public:
             if(ss.size())
             temp.pop_back();
             return;
-        }
+        }        
+        solve(i+1,ss+s[i]);
         if(ss.size())
         {
             if(valid(ss))
                 temp.push_back(ss),solve(i,""),temp.pop_back();
         }
-        solve(i+1,ss+s[i]);
     }
 };
