@@ -25,11 +25,13 @@ public:
         if(i==s.size())
         {
             if(ss.size())
-            temp.push_back(ss);
+            {
+                if(valid(ss))
+                    temp.push_back(ss);
+                else 
+                    return;
+            }
             bool tr=1;
-            for(auto it:temp)
-                if(!valid(it))
-                    tr=0;
             if(tr)ans.push_back(temp);
             if(ss.size())
             temp.pop_back();
@@ -37,7 +39,6 @@ public:
         }
         if(ss.size())
         {
-            
             temp.push_back(ss);
             if(valid(ss))
                 solve(i,"");
