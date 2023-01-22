@@ -39,10 +39,8 @@ public:
         }
         if(ss.size())
         {
-            temp.push_back(ss);
             if(valid(ss))
-                solve(i,"");
-            temp.pop_back();
+                temp.push_back(ss),solve(i,""),temp.pop_back();
         }
         solve(i+1,ss+s[i]);
     }
