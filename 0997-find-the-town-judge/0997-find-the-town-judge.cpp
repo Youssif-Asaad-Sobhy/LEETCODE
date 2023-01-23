@@ -1,22 +1,16 @@
 class Solution {
 public:
     int findJudge(int n, vector<vector<int>>& trust) {
-        //          in  out
-        vector<pair<int,int>>trustCounter(n+5);
+        vector<int>degree(n+5);
         for(auto it:trust)
         {
-            trustCounter[it[1]].first++;
-            trustCounter[it[0]].second++;
+            degree[it[1]]++;
+            degree[it[0]]--;
         }
-        int townJudge=-1;
         for(int i=1;i<=n;i++)
         {
-            if(trustCounter[i].first==n-1&&trustCounter[i].second==0)
-            {
-                townJudge=i;
-                break;
-            }
+            if(degree[i]==n-1)return i;
         }
-        return townJudge;
+        return -1;
     }
 };
