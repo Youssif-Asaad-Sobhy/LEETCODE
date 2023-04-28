@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool similar(string s1,string s2)
+    bool similar(string &s1,string &s2)
     {
         int cnt=0;
         for(int i=0;i<s1.size();i++)
