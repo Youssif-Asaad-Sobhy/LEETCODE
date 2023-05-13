@@ -4,7 +4,6 @@ public:
         int dp[100005]={};
         dp[0]=1;
         int ans=0,mod=1e9+7;
-
         for(int i=0;i<=high;i++)
         {
             if(dp[i])
