@@ -9,8 +9,7 @@ var once = function(fn) {
         if(tr)
         {
             tr=false;
-            res=fn.apply(this,args);
-            return res;
+            return fn(...args);
         }
         return undefined;
     }
